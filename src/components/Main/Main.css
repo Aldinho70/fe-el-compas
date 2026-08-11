@@ -1,0 +1,17 @@
+.container-fluid, .main-content-row {
+    min-height: 100vh;
+}
+
+.units-menu {
+    overflow-y: auto;
+}
+
+/* En mobile, el menú no ocupa toda la pantalla, se apila arriba */
+@media (max-width: 767.98px) {
+    .units-menu {
+        max-height: 40vh;
+    }
+    .main-panel {
+        min-height: 50vh;
+    }
+}
