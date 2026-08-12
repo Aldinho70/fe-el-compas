@@ -1,8 +1,34 @@
 import { List } from "../components/components/List/List.js";
+import { Accordion } from "../components/components/Accordion/Accordion.js";
 
 export const mapUnits = (units) => {
+    const array_units = parseUnits(units);
 
-    const array_units = units.map(unit => {
+    $("#root-tab-todas").html( `
+        <div class="w-100 rounded-4" style=" max-height: 500px; overflow-y:auto;">
+            ${List(array_units)}
+        </div>
+    `)
+}
+
+export const mapGroups = (groups) => {
+    const array_groups = groups.map(group => {
+        return {
+            id: group.group_id,
+            label: group.group_name,
+            content: List(parseUnits(group.units)),
+        }
+    });
+
+    $("#root-tab-grupos").html( `
+        <div class="w-100 rounded-4" style=" max-height: 500px; overflow-y:auto;">
+            ${Accordion(array_groups)}
+        </div>
+    `)
+}
+
+const parseUnits = (units) => {
+    return units.map(unit => {
         return {
             id: unit.id,
             label: unit.name,
@@ -10,12 +36,6 @@ export const mapUnits = (units) => {
             function: `showUnitDetails(${unit.id})`
         }
     });
-
-    $("#root-tab-todas").html( `
-        <div class="w-100 rounded-4" style=" max-height: 500px; overflow-y:auto;">
-            ${List(array_units)}
-        </div>
-    `)
 }
 
 const showUnitDetails = (unitId) => {

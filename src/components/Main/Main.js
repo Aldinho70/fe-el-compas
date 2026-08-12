@@ -21,11 +21,11 @@ import { Tabs } from "../Tabs/Tabs.js";
 export const Main = () => {
     return `
         <div class="container-fluid h-100">
-            <div class="row main-content-row" id="root-main-content">
-                <div class="col-12 col-md-4 col-lg-3 col-xl-2 mb-2 mb-md-0">
+            <div class="row main-content-row " id="root-main-content">
+                <div class="col-12 col-md-4 col-lg-3 col-xl-4 mb-2 mb-md-0 ">
                     ${UnitsMenu()}
                 </div>
-                <div class="col-12 col-md-8 col-lg-9 col-xl-10">
+                <div class="col-12 col-md-8 col-lg-9 col-xl-8 " style="min-height: 100%;">
                     ${MainPanel()}
                 </div>
             </div>
@@ -44,7 +44,7 @@ const UnitsMenu = () => {
 // components/MainPanel.js
 export const MainPanel = () => {
     return `
-        <div class="main-panel bg-light p-3 rounded-4 h-100" id="root-right-main-content">
+        <div class="main-panel bg-light p-3 rounded-4 h-100 w-100" id="root-right-main-content">
             <div id="main-panel-content">
                 <!-- Contenido por defecto -->
                 <p class="text-muted">Selecciona una unidad para ver el detalle.</p>

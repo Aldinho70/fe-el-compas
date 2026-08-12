@@ -1,7 +1,7 @@
-import { mapUnits } from "./src/service/compas.js";
 import { Main } from "./src/components/Main/Main.js";
 import { TOKEN_WIALON } from "./src/config/wialon.config.js";
 import { GROUPS_FILTER } from "./src/config/guzman.config.js";
+import { mapUnits, mapGroups } from "./src/service/compas.js";
 import { showLoader, hideLoader } from "./src/components/components/Loader/Loader.js";
 
 // import { Notifications } from "./src/components/Notifications/Notifications.js";
@@ -16,22 +16,18 @@ $(async () => {
             showLoader();
             await WialonService.login(TOKEN_WIALON);
             const groupsWithUnits = await WialonService.loadGroupsWithUnits(GROUPS_FILTER);
-            
-            if( groupsWithUnits[0].units.length ){
+            const all_units = groupsWithUnits.flatMap(item => item.units);
+
+            if( all_units.length ){
                 $("body").append(Main());
-                
                 if($("#root-main-content").length){
-                    mapUnits(groupsWithUnits[0].units);
-                    console.log(groupsWithUnits[0]);
+                    mapUnits(all_units);
+                    mapGroups(groupsWithUnits);
+                    hideLoader();
                 }
-
             }
-            
-
             // const notifications = await notificationsService.getNotifications( hour, 'attendNotifications' );
             // Notifications(notifications);
-            hideLoader();
-
         } catch (err) {
             console.error(err);
         }

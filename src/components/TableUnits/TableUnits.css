@@ -26,7 +26,37 @@
     transform: scale(1.05);
 }
 
+.drop-zone{
+    width: 100%;
+    min-height: 200px;
+    vertical-align: top;
+    padding: var(--space-sm);
+    background: linear-gradient(180deg, #ffffff, #f5f8fb);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+.unit-card{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: var(--color-surface);
+    border-radius: 10px;
+    cursor: grab;
+    transition: .15s transform, .15s box-shadow;
+}
+
+.unit-card:hover{
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
 .icon{
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
+}
+
+@media (min-width: 992px){
+    .drop-zone{width:33%}
 }
