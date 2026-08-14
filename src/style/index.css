@@ -1,5 +1,5 @@
 @import url("./theme.css");
-/* @import url("../components/Main/Main.css"); */
+@import url("../components/Main/Main.css");
 @import url("../components/TableUnits/TableUnits.css");
 @import url("../components/components/Toast/Toast.css");
 @import url("../components/components/Table/Table.css");
@@ -15,4 +15,67 @@
 body{
   overflow-y: auto;
   background: var(--color-bg);
+}
+
+/* Estilos para Main y Tabs: apariencia más profesional */
+.units-menu .units-sidebar,
+.units-sidebar {
+  height: 100%;
+  min-height: 360px;
+}
+
+.units-sidebar .nav-pills .nav-link {
+  background: transparent;
+  color: var(--bs-body-color);
+  border-radius: .5rem;
+  padding: .5rem .75rem;
+}
+
+.units-sidebar .nav-pills .nav-link.active {
+  background: var(--bs-primary);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+
+.main-panel {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-panel .panel-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+
+.main-panel .panel-body {
+  flex:1 1 auto;
+  overflow:auto;
+  padding:1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,250,250,0.6));
+  border-radius:.6rem;
+}
+
+.units-sidebar #units-search {
+  transition: box-shadow .15s ease;
+}
+
+.units-sidebar #units-search:focus {
+  box-shadow: 0 0 0 .15rem rgba(13,110,253,.12);
+}
+
+.units-sidebar .badge {
+  font-size:.7rem;
+  vertical-align:baseline;
+}
+
+.card-toolbar .btn {
+  margin-left:.5rem;
+}
+
+@media (max-width: 767px) {
+  .units-sidebar { margin-bottom: .75rem; }
 }

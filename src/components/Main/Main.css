@@ -1,5 +1,5 @@
-.container-fluid, .main-content-row {
-    min-height: 100vh;
+.main-content-row {
+    min-height: 85vh;
 }
 
 .units-menu {

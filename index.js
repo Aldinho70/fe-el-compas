@@ -16,12 +16,12 @@ $(async () => {
             showLoader();
             await WialonService.login(TOKEN_WIALON);
             const groupsWithUnits = await WialonService.loadGroupsWithUnits(GROUPS_FILTER);
-            const all_units = groupsWithUnits.flatMap(item => item.units);
+            const allUnits = groupsWithUnits.flatMap(item => item.units);
 
-            if( all_units.length ){
+            if( allUnits.length ){
                 $("body").append(Main());
                 if($("#root-main-content").length){
-                    mapUnits(all_units);
+                    mapUnits(allUnits);
                     mapGroups(groupsWithUnits);
                     hideLoader();
                 }

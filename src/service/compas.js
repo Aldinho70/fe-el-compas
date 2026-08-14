@@ -5,7 +5,7 @@ export const mapUnits = (units) => {
     const array_units = parseUnits(units);
 
     $("#root-tab-todas").html( `
-        <div class="w-100 rounded-4" style=" max-height: 500px; overflow-y:auto;">
+        <div class="w-100 rounded-4" style=" max-height: 85vh; overflow-y:auto;">
             ${List(array_units)}
         </div>
     `)
@@ -20,8 +20,10 @@ export const mapGroups = (groups) => {
         }
     });
 
+    console.log( Accordion(array_groups) );
+    
     $("#root-tab-grupos").html( `
-        <div class="w-100 rounded-4" style=" max-height: 500px; overflow-y:auto;">
+        <div class="w-100 rounded-4" style=" max-height: 85vh; overflow-y:auto;">
             ${Accordion(array_groups)}
         </div>
     `)

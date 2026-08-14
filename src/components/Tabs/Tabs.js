@@ -1,60 +1,33 @@
-export const Tabs = (  ) => {
+export const Tabs = () => {
+    return `
+        <div class="units-sidebar bg-white shadow-sm rounded-4 p-3 h-100 d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h6 class="mb-0 text-secondary">Unidades</h6>
+                <!--<button class="btn btn-sm btn-outline-secondary">Filtros</button>-->
+            </div>
 
-        // return `
-        // <div class="container-fluid">
-        //     <div class="row">
-        //         <div class="col-auto p-0">
-        //             <div class="nav flex-column nav-pills vh-100 overflow-auto" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="min-width:220px;">
-        //                 <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Vista general</button>
-        //                 <button class="nav-link" id="v-pills-units-tab" data-bs-toggle="pill" data-bs-target="#v-pills-units" type="button" role="tab" aria-controls="v-pills-units" aria-selected="false">Unidades</button>
-        //                 <button class="nav-link" id="v-pills-notifications-tab" data-bs-toggle="pill" data-bs-target="#v-pills-notifications" type="button" role="tab" aria-controls="v-pills-notifications" aria-selected="false">Notificaciones</button>
-        //             </div>
-        //         </div>
-        //         <div class="col p-3">
-        //             <div class="tab-content" id="v-pills-tabContent">
-        //                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-        //                     <h5>Vista General</h5>
-        //                     <div id="general-view"></div>
-        //                 </div>
-        //                 <div class="tab-pane fade" id="v-pills-units" role="tabpanel" aria-labelledby="v-pills-units-tab">
-        //                     <h5>Unidades</h5>
-        //                     <div id="units-view"></div>
-        //                 </div>
-        //                 <div class="tab-pane fade" id="v-pills-notifications" role="tabpanel" aria-labelledby="v-pills-notifications-tab">
-        //                     <h5>Notificaciones</h5>
-        //                     <div id="notifications-view"></div>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
-        // `
+            <!--<div class="mb-3">
+                <input id="units-search" class="form-control form-control-sm" placeholder="Buscar unidad..." aria-label="Buscar unidad">
+            </div>-->
 
-        return `
-            <ul class="nav nav-tabs mb-3 px-2 rounded-4 bg-secondary" id="nav-groups">
-                <li class="nav-item">
-                    <button class="nav-link active rounded-4" data-bs-toggle="tab" data-bs-target="#tab-todas">Todas</button>
+            <ul class="nav nav-pills flex-row gap-2 mb-3" id="nav-groups" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="  btn btn-sm btn-warning rounded-3" data-bs-toggle="tab" data-bs-target="#tab-todas" type="button" role="tab">Todas <!--<span class="badge bg-secondary ms-2">—</span>--></button>
                 </li>
-                <li class="nav-item">
-                    <button class="nav-link rounded-4" data-bs-toggle="tab" data-bs-target="#tab-grupos">Establos</button>
+                <li class="nav-item" role="presentation">
+                    <button class=" btn btn-sm btn-warning rounded-3 active " data-bs-toggle="tab" data-bs-target="#tab-grupos" type="button" role="tab">Establos <!--<span class="badge bg-secondary ms-2">—</span>--></button>
                 </li>
-                <!--<li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-cedis">CEDIS</button>
-                </li>-->
             </ul>
 
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="tab-todas">
+            <div class="tab-content overflow-auto" style="min-height:0;">
+                <div class="tab-pane fade" id="tab-todas">
                     <div class="d-flex flex-wrap gap-2" id="root-tab-todas"></div>
                 </div>
 
-                <div class="tab-pane fade" id="tab-grupos">
+                <div class="tab-pane fade show active" id="tab-grupos">
                     <div class="d-flex flex-wrap gap-2" id="root-tab-grupos"></div>
                 </div>
-
-                <!--<div class="tab-pane fade" id="tab-cedis">
-                    <div class="d-flex flex-wrap gap-2" id="root-tab-cedis"></div>
-                </div>-->
             </div>
-        `
+        </div>
+    `;
 }

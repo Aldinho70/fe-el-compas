@@ -1,6 +1,6 @@
 export const Accordion = ( data ) => {
     return `
-        <div class="accordion accordion-flush w-100" id="accordionUnitsGroups">
+        <div class="accordion w-100" id="accordionUnitsGroups">
             ${data.map((item, index) => `
                 <div class="accordion-item w-100">
                     <h2 class="accordion-header">
@@ -12,7 +12,7 @@ export const Accordion = ( data ) => {
                         ${item.content ? `<div class="accordion-body">${item.content}</div>` : '<div class="accordion-body">No content available.</div>'}
                     </div>
                 </div>
-            `)}
+            `).join('')}
         </div>
     `
 }
