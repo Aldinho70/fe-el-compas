@@ -14,11 +14,9 @@ $(async () => {
     const initWialon = async () => {
         try {
             showLoader();
-            hideLoader();
             await WialonService.login(TOKEN_WIALON);
-            const groupsWithUnits = await WialonService.loadGroupsWithUnits();
+            const groupsWithUnits = await WialonService.loadGroupsWithUnits( GROUPS_FILTER );
             const allUnits = groupsWithUnits.flatMap(item => item.units);
-            console.log('Grupos con unidades:', groupsWithUnits);
 
             if( allUnits.length ){
                 $("body").append(Main());
