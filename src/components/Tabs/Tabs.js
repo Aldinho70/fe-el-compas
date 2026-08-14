@@ -1,6 +1,6 @@
 export const Tabs = () => {
     return `
-        <div class="units-sidebar bg-white shadow-sm rounded-4 p-3 h-100 d-flex flex-column">
+        <div class="units-sidebar bg-white shadow-sm rounded-4 p-3 h-100 d-flex flex-column" >
             <div class="d-flex align-items-center justify-content-between mb-3">
                 <h6 class="mb-0 text-secondary">Unidades</h6>
                 <!--<button class="btn btn-sm btn-outline-secondary">Filtros</button>-->

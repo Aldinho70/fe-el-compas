@@ -1,4 +1,5 @@
 import { Tabs } from "../Tabs/Tabs.js";
+import { InfoUnit } from "../InfoUnit/InfoUnit.js";
 
 export const Main = () => {
     return `
@@ -9,7 +10,7 @@ export const Main = () => {
                 </aside>
 
                 <main class="col-12 col-md-8 col-lg-9 col-xl-9">
-                    ${MainPanel()}
+                    ${InfoUnit()}
                 </main>
             </div>
         </div>
