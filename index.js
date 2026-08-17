@@ -1,7 +1,7 @@
 import { Main } from "./src/components/Main/Main.js";
 import { TOKEN_WIALON } from "./src/config/wialon.config.js";
 import { GROUPS_FILTER } from "./src/config/compas.config.js";
-import { mapUnits, mapGroups } from "./src/service/compas.js";
+import { mapUnits, mapGroups, initializeUnitsSearch } from "./src/service/compas.js";
 import { showLoader, hideLoader } from "./src/components/components/Loader/Loader.js";
 
 // import { Notifications } from "./src/components/Notifications/Notifications.js";
@@ -22,6 +22,7 @@ $(async () => {
                 $("body").append(Main());
                 if($("#root-main-content").length){
                     mapUnits(allUnits);
+                    initializeUnitsSearch(allUnits);
                     mapGroups(groupsWithUnits);
                     hideLoader();
                 }

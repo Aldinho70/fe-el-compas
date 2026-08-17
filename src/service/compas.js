@@ -12,6 +12,25 @@ export const mapUnits = (units) => {
     `)
 }
 
+export const initializeUnitsSearch = (allUnits) => {
+    const input = document.getElementById("units-search");
+
+    if (!input) return;
+
+    const applyFilter = () => {
+        const query = input.value.trim().toLowerCase();
+        const filteredUnits = allUnits.filter((unit) => {
+            if (!unit || !unit.name) return false;
+            return unit.name.toLowerCase().includes(query);
+        });
+
+        mapUnits(filteredUnits);
+    };
+
+    input.addEventListener("input", applyFilter);
+    applyFilter();
+};
+
 export const mapGroups = (groups) => {
     const array_groups = groups.map( (group) =>  {
         
