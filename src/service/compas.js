@@ -13,17 +13,22 @@ export const mapUnits = (units) => {
 }
 
 export const mapGroups = (groups) => {
-    const array_groups = groups.map(group => {
+    const array_groups = groups.map( (group) =>  {
+        
         return {
             id: group.group_id,
             label: group.group_name,
+            icon: group.icon,
             content: List(parseUnits(group.units)),
         }
     });
 
+    console.log( array_groups );
+    
+
     $("#root-tab-grupos").html( `
         <div class="w-100 rounded-4" style=" max-height: 85vh; overflow-y:auto;">
-            ${Accordion(array_groups)}
+            ${Accordion( array_groups)}
         </div>
     `)
 }

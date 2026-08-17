@@ -166,6 +166,7 @@ const WialonService = (() => {
             return {
               group_id: group.getId(),
               group_name: group.getName(),
+              icon: group.getIconUrl(32),
               units: parsedUnits,
             };
           });
@@ -313,6 +314,13 @@ const WialonService = (() => {
       sens,
       lastMessage,
     };
+  }
+
+  async function getgroup(group_id) {
+    const group = await session.getItem(group_id);
+
+    return group;
+    
   }
 
   function getNotifications(res) {
@@ -527,6 +535,7 @@ const WialonService = (() => {
     logout,
     getSid,
     getUnit,
+    getgroup,
     loadUnits,
     getSensor,
     getSession,

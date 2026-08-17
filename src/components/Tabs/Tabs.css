@@ -1,0 +1,44 @@
+.segmented-control {
+    position: relative;
+    display: flex;
+    background-color: #f1f3f5;
+    border-radius: 12px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.segmented-btn {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6c757d;
+    border-radius: 9px;
+    transition: color 0.25s ease;
+}
+
+.segmented-btn.active {
+    color: #212529;
+}
+
+.segmented-indicator {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: #fff;
+    border-radius: 9px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease;
+    z-index: 1;
+}
+
+.segmented-btn:nth-child(2).active ~ .segmented-indicator,
+.segmented-control:has(.segmented-btn:nth-child(2).active) .segmented-indicator {
+    transform: translateX(100%);
+}
