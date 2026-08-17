@@ -1,4 +1,5 @@
 import { List } from "../components/components/List/List.js";
+import { InfoUnit } from "../components/InfoUnit/InfoUnit.js";
 import { Accordion } from "../components/components/Accordion/Accordion.js";
 
 export const mapUnits = (units) => {
@@ -20,8 +21,6 @@ export const mapGroups = (groups) => {
         }
     });
 
-    console.log( Accordion(array_groups) );
-    
     $("#root-tab-grupos").html( `
         <div class="w-100 rounded-4" style=" max-height: 85vh; overflow-y:auto;">
             ${Accordion(array_groups)}
@@ -40,7 +39,12 @@ const parseUnits = (units) => {
     });
 }
 
-const showUnitDetails = (unitId) => {
-    alert(`Mostrar detalles de la unidad con ID: ${unitId}`);
+const showUnitDetails = async (unit_id) => {
+    const unit = await WialonService.getUnit( unit_id );
+    console.log( unit );
+    
+    if( unit.name ){
+        $("#root-right-main-content").html(InfoUnit(unit))
+    }
 }
 window.showUnitDetails = showUnitDetails;

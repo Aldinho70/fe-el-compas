@@ -1,5 +1,6 @@
 @import url("./theme.css");
 @import url("../components/Main/Main.css");
+@import url("../components/InfoUnit/InfoUnit.css");
 @import url("../components/TableUnits/TableUnits.css");
 @import url("../components/components/Toast/Toast.css");
 @import url("../components/components/Table/Table.css");

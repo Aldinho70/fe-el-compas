@@ -12,19 +12,19 @@ export const Tabs = () => {
 
             <ul class="nav nav-pills flex-row gap-2 mb-3" id="nav-groups" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="  btn btn-sm btn-warning rounded-3" data-bs-toggle="tab" data-bs-target="#tab-todas" type="button" role="tab">Todas <!--<span class="badge bg-secondary ms-2">—</span>--></button>
+                    <button class="  btn btn-sm btn-warning rounded-3  active " data-bs-toggle="tab" data-bs-target="#tab-todas" type="button" role="tab">Todas <!--<span class="badge bg-secondary ms-2">—</span>--></button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class=" btn btn-sm btn-warning rounded-3 active " data-bs-toggle="tab" data-bs-target="#tab-grupos" type="button" role="tab">Establos <!--<span class="badge bg-secondary ms-2">—</span>--></button>
+                    <button class=" btn btn-sm btn-warning rounded-3" data-bs-toggle="tab" data-bs-target="#tab-grupos" type="button" role="tab">Establos <!--<span class="badge bg-secondary ms-2">—</span>--></button>
                 </li>
             </ul>
 
             <div class="tab-content overflow-auto" style="min-height:0;">
-                <div class="tab-pane fade" id="tab-todas">
+                <div class="tab-pane fade show active" id="tab-todas">
                     <div class="d-flex flex-wrap gap-2" id="root-tab-todas"></div>
                 </div>
 
-                <div class="tab-pane fade show active" id="tab-grupos">
+                <div class="tab-pane fade " id="tab-grupos">
                     <div class="d-flex flex-wrap gap-2" id="root-tab-grupos"></div>
                 </div>
             </div>

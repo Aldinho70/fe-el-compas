@@ -288,6 +288,33 @@ const WialonService = (() => {
     })
   }
 
+  async function getUnit(unit_id) {
+    const unit = await session.getItem(unit_id)
+
+    const p = unit.getPosition();
+    const sens = unit.getSensors();
+    const flds = unit.getCustomFields();
+    const lastMessage = unit.getLastMessage();
+
+    return {
+      id: unit.getId(),
+      name: unit.getName(),
+      Unidad: unit.getName(),
+      icon: unit.getIconUrl(32),
+      location: await getDirection( p?.y, p?.x ),
+      Latitud: p?.y,
+      Longitud: p?.x,
+      speed: p?.s,
+      Velocidad: p?.s,
+      timestamp: p?.t,
+      Voltaje: 0,
+      Online: 0,
+      fields_customers: flds,
+      sens,
+      lastMessage,
+    };
+  }
+
   function getNotifications(res) {
 
     for (var i = 0; i < res.length; i++) {
@@ -335,7 +362,6 @@ const WialonService = (() => {
     toastInstance.show();
   }
 
-  /* Ejecutar reporte */
   function getReportAccount(name_account, name_report) {
     return new Promise((resolve, reject) => {
       const resource = session.getItems("avl_resource");
@@ -500,6 +526,7 @@ const WialonService = (() => {
     login,
     logout,
     getSid,
+    getUnit,
     loadUnits,
     getSensor,
     getSession,

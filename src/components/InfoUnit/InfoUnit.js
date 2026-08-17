@@ -1,198 +1,31 @@
-export const InfoUnit = (  ) => {
-    const unit = {
-        name: "TRACTO-042",
-        lastConnection: "Hace 2 mins",
+export const InfoUnit = ( unit ) => {
+    // const unit = {
+    //     name: "TRACTO-042",
+    //     lastConnection: "Hace 2 mins",
 
-        speed: 85,
-        odometer: "124,500",
-        location: "Carr. Querétaro - San Luis Potosí, KM 42",
+    //     speed: 85,
+    //     odometer: "124,500",
+    //     location: "Carr. Querétaro - San Luis Potosí, KM 42",
 
-        fuel: {
-            percentage: 65,
-            remaining: 420,
-            average: 2.4
-        },
+    //     fuel: {
+    //         percentage: 65,
+    //         remaining: 420,
+    //         average: 2.4
+    //     },
 
-        engineHours: "4,250",
+    //     engineHours: "4,250",
 
-        route: "N/D"
-    };
+    //     route: "N/D"
+    // };
 
     return `
-        <style>
-            .telemetry-container {
-                background: #171b1c;
-                color: #fff;
-                border-radius: 8px;
-                padding: 10px 15px;
-            }
+         <div class="telemetry-container">
 
-            .telemetry-section-title {
-                font-size: 10px;
-                font-weight: 700;
-                letter-spacing: .5px;
-                margin-bottom: 10px;
-                color: #fff;
-            }
-
-            .telemetry-card {
-                background: #fff;
-                color: #111;
-                border-radius: 8px;
-                border: none;
-                height: 100%;
-                padding: 18px 16px;
-            }
-
-            .telemetry-label {
-                font-size: 9px;
-                font-weight: 600;
-                text-transform: uppercase;
-                color: #111;
-            }
-
-            .telemetry-value {
-                font-family: Georgia, serif;
-                font-size: 29px;
-                font-weight: 700;
-                line-height: 1;
-            }
-
-            .telemetry-unit {
-                font-size: 11px;
-                margin-left: 3px;
-            }
-
-            .telemetry-icon {
-                font-size: 15px;
-                color: #987400;
-            }
-
-            .telemetry-divider {
-                border-top: 1px solid #e5e5e5;
-                margin: 10px 0 14px;
-            }
-
-            .fuel-progress {
-                height: 7px;
-                background: #e9e9e9;
-                border-radius: 10px;
-            }
-
-            .fuel-progress .progress-bar {
-                background: #ffbd00;
-                border-radius: 10px;
-            }
-
-            .engine-chart {
-                height: 48px;
-                margin: -18px -16px -18px;
-                overflow: hidden;
-                position: relative;
-            }
-
-            .engine-chart svg {
-                width: 100%;
-                height: 100%;
-            }
-
-            .location-value {
-                font-family: Georgia, serif;
-                font-size: 13px;
-                font-weight: 600;
-                line-height: 1.2;
-            }
-
-            .map-container {
-                height: 260px;
-                border-radius: 8px;
-                overflow: hidden;
-                position: relative;
-                background: #e8e5dc;
-            }
-
-            /*
-             * Este div posteriormente puede ser reemplazado
-             * por tu instancia de Google Maps.
-             */
-            .map-background {
-                width: 100%;
-                height: 100%;
-                background:
-                    linear-gradient(
-                        125deg,
-                        transparent 0%,
-                        transparent 40%,
-                        rgba(255,255,255,.7) 40%,
-                        rgba(255,255,255,.7) 42%,
-                        transparent 42%
-                    ),
-                    linear-gradient(
-                        30deg,
-                        transparent 0%,
-                        transparent 48%,
-                        rgba(180,200,220,.8) 48%,
-                        rgba(180,200,220,.8) 50%,
-                        transparent 50%
-                    ),
-                    #e9e6dc;
-            }
-
-            .unit-map-marker {
-                position: absolute;
-                top: 15px;
-                left: 15px;
-                background: rgba(255,255,255,.95);
-                color: #111;
-                border-radius: 8px;
-                padding: 10px 14px;
-                min-width: 135px;
-                box-shadow: 0 2px 8px rgba(0,0,0,.15);
-            }
-
-            .unit-map-marker i {
-                color: #ffbd00;
-                font-size: 18px;
-            }
-
-            .unit-map-name {
-                font-size: 11px;
-                font-weight: 700;
-            }
-
-            .unit-map-route {
-                font-size: 9px;
-                color: #777;
-            }
-
-            .google-maps-link {
-                font-size: 9px;
-                color: #fff;
-                text-decoration: none;
-                font-weight: 600;
-            }
-
-            .google-maps-link:hover {
-                color: #ffbd00;
-            }
-
-            .last-connection {
-                font-size: 10px;
-                margin-bottom: 10px;
-            }
-
-            .last-connection i {
-                color: #ffbd00;
-            }
-        </style>
-
-        <div class="telemetry-container">
-
-            <!-- Última conexión -->
+            <!-- Última conexión 
             <div class="last-connection">
                 <i class="bi bi-clock-history me-1"></i>
                 Última conexión: ${unit.lastConnection}
-            </div>
+            </div>-->
 
 
             <!-- ========================= -->
@@ -245,7 +78,7 @@ export const InfoUnit = (  ) => {
 
                         <div class="mt-4">
                             <span class="telemetry-value">
-                                ${unit.odometer}
+                                ${unit?.odometer || 'No data'}
                             </span>
 
                             <span class="telemetry-unit">
@@ -308,7 +141,7 @@ export const InfoUnit = (  ) => {
                             </div>
 
                             <small style="font-family: Georgia, serif;">
-                                Promedio: ${unit.fuel.average} km/L
+                                Promedio: ${unit?.fuel?.average || 'No data'} km/L
                             </small>
 
                         </div>
@@ -318,11 +151,11 @@ export const InfoUnit = (  ) => {
                         <div class="d-flex justify-content-between align-items-end">
 
                             <span class="telemetry-value">
-                                ${unit.fuel.percentage}%
+                                ${unit?.fuel?.percentage || 'No data'}%
                             </span>
 
                             <span class="text-muted" style="font-size: 10px;">
-                                ${unit.fuel.remaining}L restantes
+                                ${unit?.fuel?.remaining || 'No data'}L restantes
                             </span>
 
                         </div>
@@ -331,8 +164,8 @@ export const InfoUnit = (  ) => {
                             <div
                                 class="progress-bar"
                                 role="progressbar"
-                                style="width: ${unit.fuel.percentage}%"
-                                aria-valuenow="${unit.fuel.percentage}"
+                                style="width: ${unit?.fuel?.percentage || 0}%"
+                                aria-valuenow="${unit?.fuel?.percentage || 0}"
                                 aria-valuemin="0"
                                 aria-valuemax="100">
                             </div>
@@ -362,7 +195,7 @@ export const InfoUnit = (  ) => {
                         <div class="telemetry-divider"></div>
 
                         <div class="telemetry-value mb-2">
-                            ${unit.engineHours}
+                            ${unit?.engineHours || 'No data'}
                             <span class="telemetry-unit">
                                 hrs
                             </span>
@@ -421,10 +254,14 @@ export const InfoUnit = (  ) => {
 
             <div class="map-container">
 
-                <!--
-                    Aquí posteriormente puedes montar
-                    tu Google Maps.
-                -->
+                <iframe
+                    width="100%"
+                    height="300"
+                    style="border:0"
+                    loading="lazy"
+                    allowfullscreen
+                    src="https://www.google.com/maps?q=${unit.Latitud},${unit.Longitud}&t=k&z=15&output=embed">
+                </iframe>
                 <div
                     id="unit-map"
                     class="map-background">

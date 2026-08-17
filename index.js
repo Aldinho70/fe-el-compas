@@ -1,6 +1,6 @@
 import { Main } from "./src/components/Main/Main.js";
 import { TOKEN_WIALON } from "./src/config/wialon.config.js";
-import { GROUPS_FILTER } from "./src/config/guzman.config.js";
+import { GROUPS_FILTER } from "./src/config/compas.config.js";
 import { mapUnits, mapGroups } from "./src/service/compas.js";
 import { showLoader, hideLoader } from "./src/components/components/Loader/Loader.js";
 

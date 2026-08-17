@@ -10,7 +10,7 @@ export const Main = () => {
                 </aside>
 
                 <main class="col-12 col-md-8 col-lg-9 col-xl-9">
-                    ${InfoUnit()}
+                    ${MainPanel()}
                 </main>
             </div>
         </div>
