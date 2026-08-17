@@ -1,0 +1,77 @@
+.accordion-custom {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.accordion-item-custom {
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: border-color 0.2s ease;
+}
+
+.accordion-btn-custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    border: none;
+    background-color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #495057;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.accordion-btn-custom:hover {
+    background-color: #fff8e1;
+}
+
+.accordion-btn-custom:not(.collapsed) {
+    background-color: #fff8e1;
+    color: #212529;
+}
+
+.accordion-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #f1f3f5;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+}
+
+.accordion-btn-custom:not(.collapsed) .accordion-icon-wrapper {
+    background-color: #ffe69c;
+}
+
+.accordion-icon-wrapper img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+
+.accordion-chevron {
+    font-size: 0.75rem;
+    color: #adb5bd;
+    transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.accordion-btn-custom:not(.collapsed) .accordion-chevron {
+    transform: rotate(180deg);
+    color: #ffc107;
+}
+
+.accordion-body-custom {
+    padding: 10px 14px;
+    border-top: 1px solid #f1f3f5;
+    background-color: #fafafa;
+    font-size: 0.82rem;
+}

@@ -28,7 +28,7 @@ export const mapGroups = (groups) => {
 
     $("#root-tab-grupos").html( `
         <div class="w-100 rounded-4" style=" max-height: 85vh; overflow-y:auto;">
-            ${Accordion( array_groups)}
+            ${Accordion( array_groups )}
         </div>
     `)
 }

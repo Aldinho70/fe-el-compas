@@ -2,12 +2,14 @@
 @import url("../components/Main/Main.css");
 @import url("../components/Tabs/Tabs.css");
 @import url("../components/InfoUnit/InfoUnit.css");
+@import url("../components/components/List/List.css");
 @import url("../components/TableUnits/TableUnits.css");
 @import url("../components/components/Toast/Toast.css");
 @import url("../components/components/Table/Table.css");
 @import url("../components/components/Header/Header.css");
 @import url("../components/components/Loader/Loader.css");
 @import url("../components/Notifications/Notifications.css");
+@import url("../components/components/Accordion/Accordion.css");
 
 #map {
   width: 100%;

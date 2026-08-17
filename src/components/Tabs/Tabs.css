@@ -42,3 +42,39 @@
 .segmented-control:has(.segmented-btn:nth-child(2).active) .segmented-indicator {
     transform: translateX(100%);
 }
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    font-size: 0.8rem;
+    color: #adb5bd;
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    border: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 8px 12px 8px 34px;
+    font-size: 0.82rem;
+    color: #212529;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.search-input::placeholder {
+    color: #adb5bd;
+}
+
+.search-input:focus {
+    border-color: #ffc107;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.15);
+}

@@ -5,6 +5,17 @@ export const Tabs = () => {
                 <h6 class="mb-0 text-secondary">Unidades</h6>
             </div>
 
+            <div class="search-wrapper mb-3">
+                <i class="bi bi-search search-icon"></i>
+                <input 
+                    type="text" 
+                    id="units-search" 
+                    class="search-input" 
+                    placeholder="Buscar unidad..." 
+                    aria-label="Buscar unidad"
+                >
+            </div>
+
             <div class="segmented-control mb-3" id="nav-groups" role="tablist">
                 <button class="segmented-btn active" data-bs-toggle="tab" data-bs-target="#tab-todas" type="button" role="tab">
                     <i class="bi bi-grid-fill me-1"></i> Todas
