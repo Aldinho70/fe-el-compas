@@ -1,23 +1,13 @@
 export const InfoUnit = ( unit ) => {
-    // const unit = {
-    //     name: "TRACTO-042",
-    //     lastConnection: "Hace 2 mins",
-
-    //     speed: 85,
-    //     odometer: "124,500",
-    //     location: "Carr. Querétaro - San Luis Potosí, KM 42",
-
-    //     fuel: {
-    //         percentage: 65,
-    //         remaining: 420,
-    //         average: 2.4
-    //     },
-
-    //     engineHours: "4,250",
-
-    //     route: "N/D"
-    // };
-
+    const { p } = unit.lastMessage; 
+    const { 
+        mileage,
+        odometer,
+        engine_hours,
+        pwr_ext, 
+        battery,
+    } = p
+    
     return `
          <div class="telemetry-container">
 
@@ -39,7 +29,7 @@ export const InfoUnit = ( unit ) => {
             <div class="row g-3 mb-3">
 
                 <!-- Velocidad -->
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-3">
                     <div class="telemetry-card">
 
                         <div class="d-flex justify-content-between align-items-center">
@@ -65,7 +55,7 @@ export const InfoUnit = ( unit ) => {
 
 
                 <!-- Odómetro -->
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-3">
                     <div class="telemetry-card">
 
                         <div class="d-flex justify-content-between align-items-center">
@@ -78,7 +68,7 @@ export const InfoUnit = ( unit ) => {
 
                         <div class="mt-4">
                             <span class="telemetry-value">
-                                ${unit?.odometer || 'No data'}
+                                ${Math.trunc(mileage) || Math.trunc(odometer) || 'No data'}
                             </span>
 
                             <span class="telemetry-unit">
@@ -89,9 +79,60 @@ export const InfoUnit = ( unit ) => {
                     </div>
                 </div>
 
+                <!-- Horas de motor -->
+                <div class="col-12 col-md-3">
+
+                    <div class="telemetry-card overflow-hidden">
+
+                        <div class="d-flex align-items-center">
+
+                            <i class="bi bi-person-gear telemetry-icon me-2"></i>
+
+                            <span class="fw-semibold"
+                                  style="font-family: Georgia, serif; font-size: 12px;">
+                                Horas de Motor
+                            </span>
+
+                        </div>
+
+                        <div class="telemetry-divider"></div>
+
+                        <div class="telemetry-value mb-2">
+                            ${Math.trunc(engine_hours) || 'No data'}
+                            <span class="telemetry-unit">
+                                hrs
+                            </span>
+                        </div>
+
+                        <!-- Decoración tipo gráfica -->
+                        <div class="engine-chart">
+                            <svg viewBox="0 0 500 80"
+                                 preserveAspectRatio="none">
+
+                                <path
+                                    d="
+                                        M0,55
+                                        C60,45 80,50 120,45
+                                        C160,40 170,30 220,35
+                                        C270,40 290,55 330,48
+                                        C380,40 400,55 430,45
+                                        C460,35 480,30 500,25
+                                        L500,80
+                                        L0,80
+                                        Z
+                                    "
+                                    fill="#e5dfcc">
+                                </path>
+
+                            </svg>
+                        </div>
+
+                    </div>
+
+                </div>
 
                 <!-- Ubicación -->
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-3">
                     <div class="telemetry-card">
 
                         <div class="d-flex justify-content-between align-items-center">
@@ -118,14 +159,14 @@ export const InfoUnit = ( unit ) => {
             <!-- KPIS DE RENDIMIENTO -->
             <!-- ========================= -->
 
-            <div class="telemetry-section-title">
+            <!--<div class="telemetry-section-title">
                 KPIS DE RENDIMIENTO
-            </div>
+            </div>-->
 
             <div class="row g-3 mb-3">
 
                 <!-- Combustible -->
-                <div class="col-12 col-md-6">
+                <!--<div class="col-12 col-md-6">
 
                     <div class="telemetry-card">
 
@@ -173,60 +214,7 @@ export const InfoUnit = ( unit ) => {
 
                     </div>
 
-                </div>
-
-
-                <!-- Horas de motor -->
-                <div class="col-12 col-md-6">
-
-                    <div class="telemetry-card overflow-hidden">
-
-                        <div class="d-flex align-items-center">
-
-                            <i class="bi bi-person-gear telemetry-icon me-2"></i>
-
-                            <span class="fw-semibold"
-                                  style="font-family: Georgia, serif; font-size: 12px;">
-                                Horas de Motor
-                            </span>
-
-                        </div>
-
-                        <div class="telemetry-divider"></div>
-
-                        <div class="telemetry-value mb-2">
-                            ${unit?.engineHours || 'No data'}
-                            <span class="telemetry-unit">
-                                hrs
-                            </span>
-                        </div>
-
-                        <!-- Decoración tipo gráfica -->
-                        <div class="engine-chart">
-                            <svg viewBox="0 0 500 80"
-                                 preserveAspectRatio="none">
-
-                                <path
-                                    d="
-                                        M0,55
-                                        C60,45 80,50 120,45
-                                        C160,40 170,30 220,35
-                                        C270,40 290,55 330,48
-                                        C380,40 400,55 430,45
-                                        C460,35 480,30 500,25
-                                        L500,80
-                                        L0,80
-                                        Z
-                                    "
-                                    fill="#e5dfcc">
-                                </path>
-
-                            </svg>
-                        </div>
-
-                    </div>
-
-                </div>
+                </div>-->
 
             </div>
 
@@ -241,12 +229,8 @@ export const InfoUnit = ( unit ) => {
                     MAPA DE POSICIÓN
                 </div>
 
-                <a href="#"
-                   class="google-maps-link">
-
-                    Ver en Google Maps
-                    <i class="bi bi-box-arrow-up-right ms-1"></i>
-
+                <a target="_blank" href="https://www.google.com/maps/@${unit.Latitud},${unit.Longitud},1369m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" class="google-maps-link">
+                    Ver en Google Maps <i class="bi bi-box-arrow-up-right ms-1"></i>
                 </a>
 
             </div>
@@ -256,7 +240,7 @@ export const InfoUnit = ( unit ) => {
 
                 <iframe
                     width="100%"
-                    height="300"
+                    height="100%"
                     style="border:0"
                     loading="lazy"
                     allowfullscreen
@@ -281,9 +265,9 @@ export const InfoUnit = ( unit ) => {
                                 ${unit.name}
                             </div>
 
-                            <div class="unit-map-route">
+                            <!--<div class="unit-map-route">
                                 Ruta: ${unit.route}
-                            </div>
+                            </div>-->
 
                         </div>
 

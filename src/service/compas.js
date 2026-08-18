@@ -10,6 +10,8 @@ export const mapUnits = (units) => {
             ${List(array_units)}
         </div>
     `)
+
+    // showUnitDetails(13338467);
 }
 
 export const initializeUnitsSearch = (allUnits) => {
@@ -42,9 +44,6 @@ export const mapGroups = (groups) => {
         }
     });
 
-    console.log( array_groups );
-    
-
     $("#root-tab-grupos").html( `
         <div class="w-100 rounded-4" style=" max-height: 85vh; overflow-y:auto;">
             ${Accordion( array_groups )}
@@ -65,7 +64,6 @@ const parseUnits = (units) => {
 
 const showUnitDetails = async (unit_id) => {
     const unit = await WialonService.getUnit( unit_id );
-    console.log( unit );
     
     if( unit.name ){
         $("#root-right-main-content").html(InfoUnit(unit))

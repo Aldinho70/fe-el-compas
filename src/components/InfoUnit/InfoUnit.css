@@ -3,6 +3,7 @@
   color: #fff;
   border-radius: 8px;
   padding: 10px 15px;
+  /* height: 100%; */
 }
 
 .telemetry-section-title {
@@ -82,20 +83,16 @@
 }
 
 .map-container {
-  height: 260px;
+  height: 350px;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
   background: #e8e5dc;
 }
 
-/*
-             * Este div posteriormente puede ser reemplazado
-             * por tu instancia de Google Maps.
-             */
 .map-background {
   width: 100%;
-  height: 100%;
+  height: 75%;
   background:
     linear-gradient(
       125deg,
